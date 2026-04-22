@@ -1,0 +1,122 @@
+/* Open Runde — files in src/assets/fonts/web */
+@font-face {
+  font-family: 'Open Runde';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src:
+    url('../assets/fonts/web/OpenRunde-Regular.woff2') format('woff2'),
+    url('../assets/fonts/web/OpenRunde-Regular.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Open Runde';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src:
+    url('../assets/fonts/web/OpenRunde-Regular.woff2') format('woff2'),
+    url('../assets/fonts/web/OpenRunde-Regular.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Open Runde';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src:
+    url('../assets/fonts/web/OpenRunde-Medium.woff2') format('woff2'),
+    url('../assets/fonts/web/OpenRunde-Medium.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Open Runde';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src:
+    url('../assets/fonts/web/OpenRunde-Semibold.woff2') format('woff2'),
+    url('../assets/fonts/web/OpenRunde-Semibold.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Open Runde';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src:
+    url('../assets/fonts/web/OpenRunde-Bold.woff2') format('woff2'),
+    url('../assets/fonts/web/OpenRunde-Bold.woff') format('woff');
+}
+
+:root {
+  /* Surfaces */
+  --color-bg: #050512;
+  --color-bg-elevated: #0a0a18;
+  --color-card: #0b0b1c;
+
+  /* Brand */
+  --color-accent: #fcdc3c;
+  --color-on-accent: #050512;
+  --color-brand: #fa1e6f;
+  --color-on-brand: #050512;
+
+  /* Text */
+  --color-text: #ffffff;
+  --color-text-muted: rgba(255, 255, 255, 0.68);
+
+  /* Typography */
+  --font-sans: 'Open Runde', system-ui, sans-serif;
+
+  /* Layout */
+  --navbar-height: 4rem;
+  --layout-feature-max: 43.375rem;
+  --page-gutter: 1.5rem;
+  --color-pager-track: #242435;
+  --carousel-autoplay-duration: 6s;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  -webkit-font-smoothing: antialiased;
+}
+
+main {
+  min-height: calc(100vh - var(--navbar-height));
+  padding: 0 var(--page-gutter) var(--page-gutter);
+  box-sizing: border-box;
+}
+
+a {
+  color: inherit;
+}
+
+/* Global affordance for primary interactive elements */
+:is(a:any-link, button:not(:disabled), input[type='button']:not(:disabled), input[type='submit']:not(:disabled), input[type='reset']:not(:disabled)) {
+  transition: filter 0.15s ease;
+}
+
+@media (hover: hover) {
+  :is(a:any-link, button:not(:disabled), input[type='button']:not(:disabled), input[type='submit']:not(:disabled), input[type='reset']:not(:disabled)):hover {
+    filter: brightness(0.9);
+  }
+}
+
+:is(a:any-link, button:not(:disabled), input[type='button']:not(:disabled), input[type='submit']:not(:disabled), input[type='reset']:not(:disabled)):active {
+  filter: brightness(0.85);
+}

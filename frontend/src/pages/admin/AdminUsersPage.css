@@ -1,0 +1,91 @@
+/* Table layout + page-specific cells */
+
+.admin-users {
+  min-height: 0;
+}
+
+.admin-users .admin-page__body.admin-users__body {
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.admin-users__error {
+  background: rgba(248, 113, 113, 0.1);
+  border: 1px solid rgba(248, 113, 113, 0.22);
+  color: #f87171;
+  font-size: 0.84rem;
+  padding: 0.6rem 0.95rem;
+  border-radius: 9px;
+  margin: 0.75rem 2rem 0;
+}
+
+.admin-users__table {
+  min-width: 1180px;
+}
+
+.admin-data-table-shell .admin-users__table thead th {
+  font-size: 0.64rem;
+  letter-spacing: 0.06em;
+}
+
+.admin-data-table-shell .admin-users__table tbody td {
+  padding: 0.65rem 0.85rem;
+}
+
+.admin-users__actions-head {
+  width: 1%;
+  white-space: nowrap;
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--color-text-muted, rgba(255, 255, 255, 0.45));
+}
+
+.admin-users__actions {
+  width: 1%;
+  white-space: nowrap;
+  vertical-align: middle;
+}
+
+.admin-users__delete {
+  font-size: 0.72rem;
+  padding: 0.28rem 0.55rem;
+}
+
+.admin-users__cell-user {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  min-width: 0;
+}
+
+.admin-users__table-avatar {
+  width: 32px;
+  height: 32px;
+  font-size: 0.78rem;
+  flex-shrink: 0;
+}
+
+.admin-users__table-name {
+  font-size: 0.86rem;
+  font-weight: 500;
+  color: var(--color-text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.admin-users__tg-code {
+  font-size: 0.72rem;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, monospace;
+  color: var(--color-text);
+  background: rgba(255, 255, 255, 0.06);
+  padding: 0.15rem 0.45rem;
+  border-radius: 6px;
+  word-break: break-all;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}

@@ -1,0 +1,66 @@
+# Dependencies
+node_modules/
+**/node_modules/
+
+# Build / output
+dist/
+build/
+.turbo/
+.vite/
+
+# Environment (do not commit secrets)
+.env
+.env.*
+!.env.example
+!.env.production.example
+!.env.*.example
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+.venv/
+*.egg-info/
+.Python
+
+# Databases (local)
+*.db
+*.sqlite
+*.sqlite3
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# OS
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Editor
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+.vscode/*
+!.vscode/extensions.json
+
+# Test / coverage
+coverage/
+.coverage
+htmlcov/
+.pytest_cache/
+*.cover
+
+# Misc
+*.local
+.cache/

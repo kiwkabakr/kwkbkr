@@ -1,0 +1,642 @@
+.bet-page {
+  width: 100%;
+  max-width: var(--layout-feature-max);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 24px 0 64px;
+  box-sizing: border-box;
+}
+
+/* ── Hero ── */
+.bet-page__hero {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.bet-page__hero-img {
+  flex-shrink: 0;
+  width: 72px;
+  height: 72px;
+  border-radius: 12px;
+  object-fit: cover;
+  display: block;
+}
+
+.bet-page__hero-info {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.bet-page__hero-meta {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 500;
+  letter-spacing: -0.4px;
+  color: #9e9eab;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.bet-page__hero-id {
+  font-size: 0.7rem;
+  font-weight: 400;
+  background: rgba(255, 255, 255, 0.08);
+  padding: 0.15rem 0.4rem;
+  border-radius: 4px;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.bet-page__hero-title {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 500;
+  letter-spacing: -0.48px;
+  line-height: 1.2;
+  color: var(--color-text);
+}
+
+.bet-page__status-banner {
+  margin: 0;
+  padding: 0.65rem 0.85rem;
+  border-radius: 8px;
+  font-size: 0.88rem;
+  line-height: 1.35;
+  color: rgba(255, 255, 255, 0.82);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* ── Main options (Tak / Nie) ── */
+.bet-page__main-options {
+  display: flex;
+  gap: 12px;
+}
+
+/* ── Więcej opcji (Figma market blocks via BetListCard) ── */
+.bet-page__more-markets {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Podkategoria blocks: no card panel — blends with page */
+.bet-page__more-markets .bet-list-card {
+  background: transparent;
+  padding: 0;
+  border-radius: 0;
+  /* Bubble sits above the info icon; default .bet-list-card overflow:hidden clipped it */
+  overflow: visible;
+}
+
+/* ── Shared option button ── */
+.bet-page__opt {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  border: none;
+  border-radius: 16px;
+  cursor: pointer;
+  font-family: var(--font-sans);
+  padding: 11px 48px;
+  transition: filter 0.15s ease, transform 0.12s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.bet-page__opt--large {
+  flex: 1;
+  min-height: 75px;
+}
+
+.bet-page__opt--small {
+  flex-shrink: 0;
+  padding: 10px 18px;
+  border-radius: 14px;
+  min-width: 80px;
+}
+
+.bet-page__opt--primary {
+  background: var(--color-accent);
+  color: var(--color-on-accent);
+}
+
+.bet-page__opt--secondary {
+  background: rgba(252, 220, 60, 0.1);
+  color: var(--color-accent);
+}
+
+/* Third option — same subtle gray treatment as featured-bet__odd--ghost */
+.bet-page__opt--ghost {
+  position: relative;
+  background: transparent;
+  color: var(--color-text);
+}
+
+.bet-page__opt--ghost::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.1);
+  mix-blend-mode: plus-lighter;
+  pointer-events: none;
+}
+
+.bet-page__opt--ghost .bet-page__opt-body,
+.bet-page__opt--ghost .bet-page__opt-morph {
+  position: relative;
+  z-index: 1;
+}
+
+.bet-page__opt-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.bet-page__opt--small .bet-page__opt-body {
+  flex-direction: row;
+  gap: 4px;
+}
+
+.bet-page__opt-label {
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: -0.4px;
+  line-height: 1;
+}
+
+.bet-page__opt-odds {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.bet-page__opt-mult {
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: -0.32px;
+}
+
+.bet-page__opt-mult--primary {
+  color: var(--color-on-accent);
+}
+
+.bet-page__opt-mult--secondary {
+  color: var(--color-accent);
+}
+
+.bet-page__opt-mult--ghost {
+  color: var(--color-text);
+}
+
+/* Strikethrough odds */
+.bet-page__strike {
+  position: relative;
+  display: inline-block;
+}
+
+.bet-page__strike-text {
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: -0.32px;
+}
+
+.bet-page__strike--dark .bet-page__strike-text {
+  color: #807027;
+}
+
+.bet-page__strike--light .bet-page__strike-text {
+  color: #a59130;
+}
+
+.bet-page__strike-line {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  height: 2px;
+  border-radius: 27px;
+  transform: translateY(-50%);
+}
+
+.bet-page__strike--dark .bet-page__strike-line {
+  background: #807027;
+}
+
+.bet-page__strike--light .bet-page__strike-line {
+  background: #a59130;
+}
+
+.bet-page__strike--muted .bet-page__strike-text {
+  color: #9e9eab;
+}
+
+.bet-page__strike--muted .bet-page__strike-line {
+  background: #9e9eab;
+}
+
+/* Selected state */
+.bet-page__opt--selected {
+  filter: brightness(0.72);
+}
+
+.bet-page__opt--loading .bet-page__opt-body,
+.bet-page__opt--selected .bet-page__opt-body {
+  display: none;
+}
+
+/* ── Morph SVG (spinner → checkmark), same idea as BetCard / main page ── */
+.bet-page__opt-morph {
+  display: none;
+  pointer-events: none;
+  overflow: visible;
+}
+
+.bet-page__opt-morph .opt-morph-circle {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-dasharray: 56.5;
+  stroke-dashoffset: 42;
+  transform-origin: 12px 12px;
+  transition: stroke-dashoffset 0.18s ease, opacity 0.15s ease;
+}
+
+.bet-page__opt-morph .opt-morph-check {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 13.7;
+  stroke-dashoffset: 13.7;
+  opacity: 0;
+  transition: stroke-dashoffset 0.25s ease, opacity 0.1s ease;
+}
+
+.bet-page__opt--loading .bet-page__opt-morph,
+.bet-page__opt--selected .bet-page__opt-morph {
+  display: block;
+}
+
+.bet-page__opt--loading .opt-morph-circle {
+  opacity: 1;
+  animation: bet-page-morph-spin 0.65s linear infinite;
+}
+
+.bet-page__opt--confirming .opt-morph-circle,
+.bet-page__opt--selected:not(.bet-page__opt--confirming) .opt-morph-circle {
+  animation: none;
+  stroke-dashoffset: 56.5;
+  opacity: 0;
+}
+
+.bet-page__opt--confirming .opt-morph-check {
+  stroke-dashoffset: 0;
+  opacity: 1;
+  transition: stroke-dashoffset 0.25s ease 0.12s, opacity 0.1s ease 0.1s;
+}
+
+.bet-page__opt--selected:not(.bet-page__opt--confirming) .opt-morph-check {
+  stroke-dashoffset: 0;
+  opacity: 1;
+  transition: none;
+}
+
+@keyframes bet-page-morph-spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes bet-page-confirm-bounce {
+  0%   { transform: scale(1); }
+  35%  { transform: scale(0.9); }
+  100% { transform: scale(1); }
+}
+
+.bet-page__opt--confirming {
+  animation: bet-page-confirm-bounce 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.bet-page__opt--loading,
+.bet-page__opt--loading:hover,
+.bet-page__opt--loading:active,
+.bet-page__opt--confirming,
+.bet-page__opt--confirming:hover,
+.bet-page__opt--confirming:active {
+  filter: none;
+}
+
+/* ── Sub-questions ── */
+.bet-page__subq {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.bet-page__subq-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.bet-page__subq-avatar {
+  flex-shrink: 0;
+  width: 38px;
+  height: 38px;
+  border-radius: 8px;
+  object-fit: cover;
+  display: block;
+}
+
+.bet-page__subq-title {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 500;
+  letter-spacing: -0.48px;
+  color: var(--color-text);
+}
+
+.bet-page__subq-rows {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.bet-page__subrow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.bet-page__subrow-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.bet-page__subrow-avatar {
+  width: 38px;
+  height: 38px;
+  border-radius: 6px;
+  object-fit: cover;
+  display: block;
+  flex-shrink: 0;
+}
+
+.bet-page__subrow-label {
+  font-size: 20px;
+  font-weight: 500;
+  letter-spacing: -0.4px;
+  color: #9e9eab;
+  white-space: nowrap;
+}
+
+.bet-page__subrow-bar-track {
+  flex: 1;
+  height: 4px;
+  background: #161628;
+  border-radius: 32px;
+}
+
+/* ── Rules ── */
+.bet-page__rules {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-top: 8px;
+}
+
+.bet-page__rules-title {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 28px;
+  font-size: 20px;
+  font-weight: 500;
+  letter-spacing: -0.4px;
+  color: var(--color-text);
+}
+
+.bet-page__rules-title-text {
+  flex: 1;
+  min-width: 0;
+}
+
+.bet-page__rules-info-wrap {
+  flex-shrink: 0;
+}
+
+.bet-page__rules-info {
+  display: flex;
+  align-items: center;
+}
+
+.bet-page__info-svg {
+  display: block;
+}
+
+.bet-page__rules-body {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 400;
+  letter-spacing: -0.36px;
+  line-height: 1.72;
+  color: #9e9eab;
+}
+
+/* ── Community banners (Figma: Telegram + Discord, one column, one row each) ── */
+.bet-page__community {
+  margin-top: 4px;
+}
+
+.bet-page__community-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.bet-page__community-banner {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px 14px 18px;
+  border-radius: 20px;
+  box-sizing: border-box;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.bet-page__community-banner--telegram {
+  background: #2c74e0;
+}
+
+.bet-page__community-banner--discord {
+  background: #445ee3;
+}
+
+.bet-page__community-banner-icon {
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+}
+
+.bet-page__community-banner-icon svg {
+  display: block;
+  width: 24px;
+  height: auto;
+  max-height: 24px;
+}
+
+.bet-page__community-banner-text {
+  margin: 0;
+  flex: 1;
+  min-width: 0;
+  font-family: var(--font-sans);
+  font-size: clamp(13px, 2.5vw, 18px);
+  font-weight: 600;
+  letter-spacing: -0.36px;
+  line-height: 1.35;
+  color: #fff;
+}
+
+.bet-page__community-banner-text--multiline {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.bet-page__community-banner-text-dim {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.bet-page__community-banner-text-em {
+  color: #fff;
+}
+
+.bet-page__community-banner-line {
+  display: block;
+}
+
+.bet-page__community-banner-line--strong {
+  color: #fff;
+}
+
+.bet-page__community-banner-line--dim {
+  color: rgba(255, 255, 255, 0.6);
+  font-weight: 500;
+}
+
+.bet-page__community-banner-btn {
+  flex-shrink: 0;
+  padding: 11px 18px;
+  border-radius: 10px;
+  border: none;
+  font-family: var(--font-sans);
+  font-size: clamp(13px, 2.2vw, 15px);
+  font-weight: 600;
+  letter-spacing: -0.28px;
+  text-decoration: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  transition: filter 0.15s ease;
+  white-space: nowrap;
+}
+
+.bet-page__community-banner--telegram .bet-page__community-banner-btn {
+  background: #2665c3;
+}
+
+.bet-page__community-banner--discord .bet-page__community-banner-btn {
+  background: #3e53bd;
+}
+
+.bet-page__community-banner-qr {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 88px;
+  height: 88px;
+  border-radius: 8px;
+  background: transparent;
+  box-sizing: border-box;
+  text-decoration: none;
+  color: inherit;
+}
+
+.bet-page__community-banner-qr svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  border-radius: 4px;
+}
+
+@media (max-width: 640px) {
+  .bet-page__community-banner {
+    gap: 10px;
+    padding: 12px 12px 12px 14px;
+  }
+
+  .bet-page__community-banner-btn {
+    padding: 10px 14px;
+  }
+
+  .bet-page__community-banner-qr {
+    width: 72px;
+    height: 72px;
+  }
+
+  .bet-page__community-banner-icon {
+    width: 22px;
+    height: 22px;
+  }
+
+  .bet-page__community-banner-icon svg {
+    width: 22px;
+    max-height: 22px;
+  }
+}
+
+@media (max-width: 400px) {
+  .bet-page__community-banner {
+    gap: 8px;
+    padding: 10px 10px 10px 12px;
+  }
+
+  .bet-page__community-banner-qr {
+    width: 64px;
+    height: 64px;
+  }
+}
+
+@media (hover: hover) {
+  .bet-page__community-banner-btn:hover {
+    filter: brightness(1.06);
+  }
+}
+
+.bet-page__community-banner-btn:active {
+  filter: brightness(0.92);
+}

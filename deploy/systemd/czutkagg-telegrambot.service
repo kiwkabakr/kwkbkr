@@ -1,0 +1,26 @@
+[Unit]
+Description=Czutka.gg Telegram bot (python-telegram-bot)
+After=network-online.target czutkagg-backend.service
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=czutkagg
+Group=czutkagg
+WorkingDirectory=/srv/czutkagg/telegrambot
+EnvironmentFile=/etc/czutkagg/telegrambot.env
+ExecStart=/srv/czutkagg/telegrambot/venv/bin/python main.py
+Restart=always
+RestartSec=5
+
+NoNewPrivileges=true
+ProtectSystem=strict
+ProtectHome=true
+PrivateTmp=true
+ReadWritePaths=/srv/czutkagg/telegrambot
+
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target

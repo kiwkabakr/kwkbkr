@@ -1,0 +1,194 @@
+.person-picker {
+  position: relative;
+}
+
+.person-picker__trigger {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  width: 100%;
+  background: var(--color-bg);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  padding: 0.5rem 0.65rem;
+  cursor: pointer;
+  text-align: left;
+  transition: border-color 0.15s ease;
+}
+
+.person-picker__trigger:hover,
+.person-picker__trigger--open {
+  border-color: var(--color-accent);
+  filter: none;
+}
+
+.person-picker__selected {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  flex: 1;
+}
+
+.person-picker__placeholder {
+  flex: 1;
+  color: var(--color-text-muted);
+}
+
+.person-picker__chevron {
+  font-size: 0.65rem;
+  color: var(--color-text-muted);
+  margin-left: auto;
+  flex-shrink: 0;
+}
+
+.person-picker__clear {
+  margin-left: 0.2rem;
+  width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  background: rgba(255, 255, 255, 0.06);
+  flex-shrink: 0;
+  line-height: 1;
+}
+
+.person-picker__clear:hover {
+  background: rgba(255, 80, 80, 0.2);
+  color: #ff5050;
+}
+
+.person-picker__pfp {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.person-picker__dropdown {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  right: 0;
+  background: var(--color-bg-elevated);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  z-index: 100;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+.person-picker__search {
+  display: block;
+  width: 100%;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  padding: 0.55rem 0.75rem;
+  outline: none;
+}
+
+.person-picker__list {
+  list-style: none;
+  margin: 0;
+  padding: 0.3rem 0;
+  max-height: 160px;
+  overflow-y: auto;
+}
+
+.person-picker__option {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  width: 100%;
+  background: none;
+  border: none;
+  padding: 0.45rem 0.75rem;
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  font-size: 0.83rem;
+  cursor: pointer;
+  text-align: left;
+  transition: background 0.1s ease;
+}
+
+.person-picker__option:hover {
+  background: rgba(255, 255, 255, 0.05);
+  filter: none;
+}
+
+.person-picker__option--active {
+  color: var(--color-accent);
+}
+
+.person-picker__empty {
+  padding: 0.6rem 0.75rem;
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+}
+
+.person-picker__create-btn {
+  display: block;
+  width: 100%;
+  background: none;
+  border: none;
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+  color: var(--color-accent);
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  font-weight: 500;
+  padding: 0.5rem 0.75rem;
+  cursor: pointer;
+  text-align: left;
+}
+
+.person-picker__create-btn:hover {
+  filter: none;
+  background: rgba(252, 220, 60, 0.06);
+}
+
+.person-picker__create-row {
+  display: flex;
+  gap: 0.4rem;
+  padding: 0.5rem 0.6rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.person-picker__create-input {
+  flex: 1;
+  background: var(--color-bg);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  padding: 0.3rem 0.5rem;
+  outline: none;
+  min-width: 0;
+}
+
+.person-picker__create-input:focus {
+  border-color: var(--color-accent);
+}
+
+.person-picker__create-confirm {
+  background: var(--color-accent);
+  color: var(--color-on-accent);
+  border: none;
+  border-radius: 6px;
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 0.3rem 0.65rem;
+  cursor: pointer;
+}

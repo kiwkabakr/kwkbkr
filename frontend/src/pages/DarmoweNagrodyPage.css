@@ -1,0 +1,669 @@
+.rewards {
+  max-width: var(--layout-feature-max);
+  margin: 0 auto;
+  padding: 1.5rem 0 4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2.75rem;
+}
+
+/* Heading outside the subtle card box (Discord / Telegram) — mirrors gap inside integrated sections */
+.rewards__group {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.rewards__section--after-outside-title {
+  padding-top: 0;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ── Figma 227:5 — section title above each card + float behind lead card ── */
+
+.rewards__section {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  background: var(--color-card);
+  border-radius: 16px;
+  padding: 1.25rem 1.25rem 1.5rem;
+  box-sizing: border-box;
+}
+
+.rewards__section--lead {
+  padding-top: 0.125rem;
+}
+
+.rewards__float {
+  position: absolute;
+  z-index: 0;
+  right: -18%;
+  top: 2rem;
+  width: min(26rem, 118vw);
+  max-width: none;
+  pointer-events: none;
+  transform: rotate(-23deg);
+  opacity: 1;
+}
+
+.rewards__float-img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.rewards__section--lead .rewards__section-title,
+.rewards__section--lead .reward-card {
+  position: relative;
+  z-index: 1;
+}
+
+.rewards__section-title {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: -0.48px;
+  line-height: 1.2;
+  color: var(--color-text);
+}
+
+.rewards__section-title--daily {
+  font-weight: 600;
+}
+
+.rewards__section-title--daily .rewards__accent {
+  font-weight: 700;
+}
+
+.rewards__accent {
+  color: var(--color-brand);
+}
+
+/* ── Card ── */
+
+.reward-card {
+  background: transparent;
+  border-radius: 0;
+  padding: 0;
+}
+
+/* Title + card inside one section: extra top pad when a non-heading node precedes the card */
+.rewards__section > .reward-card:not(:first-child) {
+  padding-top: 24px;
+}
+
+/* Decorative art — absolutely positioned; card height follows content only */
+.reward-card--with-float {
+  position: relative;
+  overflow: visible;
+  padding-bottom: 0;
+}
+
+.reward-card__body {
+  position: relative;
+  z-index: 1;
+}
+
+.reward-card__bg-float {
+  position: absolute;
+  z-index: 0;
+  left: 50%;
+  bottom: 0;
+  width: min(13.5rem, 72%);
+  max-width: 240px;
+  transform: translate(-50%, 42%);
+  pointer-events: none;
+  opacity: 1;
+}
+
+/* Discord art — left + counter-clockwise tilt; Telegram — right + clockwise tilt */
+.reward-card--float-discord .reward-card__bg-float {
+  left: 0;
+  transform: translate(-30%, 42%) rotate(-10deg);
+}
+
+.reward-card--float-telegram .reward-card__bg-float {
+  left: auto;
+  right: 0;
+  transform: translate(30%, 42%) rotate(10deg);
+}
+
+.reward-card__bg-float-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+}
+
+.reward-card__header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.reward-card__icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.reward-card__icon--x {
+  background: #000;
+}
+
+.reward-card__icon--steam {
+  background: #1b2838;
+}
+
+.reward-card__icon--discord {
+  background: #5865f2;
+}
+
+.reward-card__icon--telegram {
+  background: #2aabee;
+}
+
+.reward-card__title {
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: -0.4px;
+  margin: 0;
+}
+
+/* Figma task list + rows (230:154, 230:301) */
+
+.reward-card__task-list {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 16px;
+}
+
+.reward-card__task-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.reward-card__task-num {
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 19px;
+  font-weight: 700;
+  letter-spacing: -0.38px;
+  line-height: 16px;
+  color: #fff;
+  opacity: 0.6;
+  mix-blend-mode: plus-lighter;
+}
+
+.reward-card__task-txt {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: -0.4px;
+  line-height: 36px;
+  color: var(--color-text);
+}
+
+.reward-card__figma-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  gap: 10px;
+  min-width: 0;
+}
+
+.reward-card__figma-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 15px;
+}
+
+.reward-card__steam-title {
+  margin: 0;
+  flex: 1 1 12rem;
+  min-width: 0;
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: -0.4px;
+  line-height: 36px;
+  color: var(--color-text);
+}
+
+.reward-card__cooldown-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+  opacity: 0.6;
+  mix-blend-mode: plus-lighter;
+}
+
+.reward-card__cooldown-icon {
+  color: #fff;
+  flex-shrink: 0;
+}
+
+.reward-card__cooldown-text {
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: -0.4px;
+  line-height: 36px;
+  font-variant-numeric: tabular-nums;
+}
+
+.reward-card__field {
+  flex: 1 1 200px;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  height: 56px;
+  padding: 16px 20px;
+  border-radius: 20px;
+  background: rgba(250, 30, 111, 0.1);
+  box-sizing: border-box;
+}
+
+.reward-card__field--static {
+  flex: 1 1 280px;
+}
+
+.reward-card__field--input {
+  cursor: text;
+}
+
+.reward-card__field-icon {
+  flex-shrink: 0;
+  color: var(--color-brand);
+}
+
+.reward-card__field-prefix {
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: -0.4px;
+  color: var(--color-brand);
+}
+
+.reward-card__field-control {
+  flex: 1 1 0%;
+  min-width: 0;
+  border: none;
+  background: transparent;
+  padding: 0;
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: -0.4px;
+  color: var(--color-brand);
+  outline: none;
+}
+
+.reward-card__field-control::placeholder {
+  color: rgba(250, 30, 111, 0.55);
+}
+
+.reward-card__field-control:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.reward-card__btn-pink {
+  flex: 1 1 140px;
+  min-height: 56px;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 20px;
+  background: var(--color-brand);
+  color: var(--color-on-brand);
+  font-family: var(--font-sans);
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: -0.4px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  white-space: nowrap;
+  box-sizing: border-box;
+}
+
+.reward-card__btn-pink:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.reward-card__btn-pink-label {
+  font-variant-numeric: tabular-nums;
+}
+
+.reward-card__verify-block {
+  margin-top: 15px;
+}
+
+.reward-card__verify-block--locked .reward-card__field-control:disabled {
+  opacity: 0.35;
+}
+
+.reward-card__verify-hint {
+  margin: 0 0 10px;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: -0.24px;
+  color: var(--color-text-muted);
+}
+
+.reward-card__tutorial-link-icon {
+  flex-shrink: 0;
+  color: var(--color-accent);
+}
+
+.reward-card__tutorial-telegram-icon {
+  flex-shrink: 0;
+  color: #fff;
+}
+
+.reward-card__desc {
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--color-text-muted);
+  letter-spacing: -0.32px;
+  line-height: 1.5;
+  margin: 0 0 16px;
+}
+
+.reward-card__desc--tight {
+  margin-bottom: 12px;
+}
+
+/* ── Actions row ── */
+
+.reward-card__actions {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: stretch;
+  gap: 10px;
+  min-width: 0;
+}
+
+.reward-card__input {
+  flex: 1 1 0%;
+  min-width: 0;
+  height: 48px;
+  padding: 0 16px;
+  border-radius: 14px;
+  border: 1.5px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: -0.32px;
+  outline: none;
+  transition: border-color 0.15s ease;
+}
+
+.reward-card__input::placeholder {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.reward-card__input:focus {
+  border-color: var(--color-brand);
+}
+
+.reward-card__input:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.reward-card__received {
+  margin: 14px 0 0;
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: -0.28px;
+  line-height: 1.5;
+  color: var(--color-text-muted);
+}
+
+.reward-card__tutorial {
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.reward-card__tutorial-title {
+  margin: 0 0 4px;
+  font-size: 20px;
+  font-weight: 500;
+  letter-spacing: -0.4px;
+  color: var(--color-text);
+}
+
+.reward-card__tutorial-steps .bet-modal__step-label:first-of-type,
+.reward-card__tutorial-step-label {
+  margin-top: 4px;
+}
+
+.reward-card__tutorial-desc {
+  margin-top: 12px;
+}
+
+.reward-card__tutorial-step-with-qr {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 8px;
+}
+
+.reward-card__tutorial-step-main {
+  flex: 1 1 200px;
+  min-width: 0;
+}
+
+.reward-card__tutorial-qr {
+  flex-shrink: 0;
+  margin-left: auto;
+}
+
+.reward-card__qr--tutorial {
+  width: 112px;
+  height: 112px;
+  display: block;
+  box-sizing: border-box;
+}
+
+.reward-card__btn-label {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-width: 0;
+  font-variant-numeric: tabular-nums;
+}
+
+.reward-card__btn-chevron {
+  flex-shrink: 0;
+  width: 1.125rem;
+  height: 1.125rem;
+  display: block;
+}
+
+.reward-card__btn {
+  flex-shrink: 0;
+  height: 48px;
+  padding: 0 28px;
+  border-radius: 14px;
+  border: none;
+  background: var(--color-brand);
+  color: #fff;
+  font-family: var(--font-sans);
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: -0.32px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  text-decoration: none;
+  white-space: nowrap;
+  min-width: 110px;
+}
+
+.reward-card__btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.reward-card__btn--discord {
+  background: #5865f2;
+  color: #fff;
+}
+
+.reward-card__btn--telegram {
+  background: #2aabee;
+  color: #fff;
+}
+
+.reward-card__btn--x {
+  background: #000;
+  color: #fff;
+}
+
+.reward-card__btn--block {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* ── Note ── */
+
+.reward-card__note {
+  margin: 12px 0 0;
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--color-text-muted);
+  letter-spacing: -0.28px;
+}
+
+/* ── Telegram QR section ── */
+
+.reward-card__telegram-cta {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-top: 16px;
+}
+
+.reward-card__qr {
+  border-radius: 12px;
+  background: #fff;
+  padding: 8px;
+}
+
+/* ── Spinner ── */
+
+.reward-spinner {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 2.5px solid rgba(5, 5, 18, 0.2);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: reward-spin 0.6s linear infinite;
+}
+
+.reward-spinner--on-dark {
+  border-color: rgba(5, 5, 18, 0.25);
+  border-top-color: #050512;
+}
+
+@keyframes reward-spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ── Responsive ── */
+
+@media (max-width: 48rem) {
+  .rewards__section {
+    padding: 1.25rem 1rem 1.5rem;
+  }
+
+  .rewards__section > .reward-card:not(:first-child) {
+    padding-top: 20px;
+  }
+
+  .rewards__float {
+    right: -28%;
+    top: 3.25rem;
+    width: min(19rem, 100vw);
+    opacity: 1;
+  }
+
+  .reward-card__btn {
+    padding: 0 16px;
+    min-width: 0;
+    gap: 6px;
+  }
+
+  .reward-card__btn-chevron {
+    width: 1rem;
+    height: 1rem;
+  }
+
+  .reward-card__figma-row {
+    flex-direction: column;
+  }
+
+  .reward-card__btn-pink {
+    flex: 1 1 auto;
+    width: 100%;
+  }
+
+  .reward-card__telegram-cta {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .reward-card__tutorial-step-with-qr {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .reward-card__tutorial-qr {
+    margin-left: 0;
+  }
+
+  .reward-card__qr--tutorial {
+    width: 120px;
+    height: 120px;
+  }
+}

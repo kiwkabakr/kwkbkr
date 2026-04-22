@@ -1,0 +1,116 @@
+/* Most of the page uses shared primitives. Page-specific bits only. */
+
+.admin-bets.admin-split .admin-split__list {
+  width: 400px;
+  min-height: 0;
+}
+
+.admin-bets__search {
+  padding: 0.85rem 1.25rem 0.5rem;
+  flex-shrink: 0;
+  display: flex;
+}
+
+.admin-bets__filters {
+  display: flex;
+  gap: 0.4rem;
+  padding: 0 1.25rem 0.9rem;
+  flex-wrap: wrap;
+  flex-shrink: 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* ── Bet list (table) ──────────────────────────────────── */
+.admin-bets__table-outer {
+  flex: 1;
+  min-height: 0;
+  padding: 0 0.75rem 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.admin-bets__table {
+  width: 100%;
+  min-width: 0;
+  table-layout: fixed;
+}
+
+.admin-data-table-shell .admin-bets__table thead th {
+  font-size: 0.64rem;
+  letter-spacing: 0.06em;
+}
+
+.admin-data-table-shell .admin-bets__table tbody td {
+  padding: 0.65rem 0.85rem;
+}
+
+.admin-bets__table thead th:nth-child(2) {
+  width: 28%;
+}
+
+.admin-bets__table thead th:nth-child(3) {
+  width: 5.5rem;
+}
+
+.admin-bets__table tbody tr {
+  cursor: pointer;
+  transition: background 0.1s ease;
+}
+
+.admin-bets__table tbody tr:hover td {
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.admin-bets__table tbody tr:focus-visible {
+  outline: 2px solid rgba(252, 220, 60, 0.45);
+  outline-offset: -2px;
+}
+
+.admin-bets__row--active td {
+  background: rgba(252, 220, 60, 0.07) !important;
+}
+
+.admin-bets__name-cell {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  min-width: 0;
+}
+
+.admin-bets__thumb-sm {
+  width: 48px;
+  height: 36px;
+  border-radius: 7px;
+  flex-shrink: 0;
+  font-size: 0.78rem;
+}
+
+.admin-bets__title-txt {
+  font-size: 0.86rem;
+  font-weight: 500;
+  color: var(--color-text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  letter-spacing: -0.003em;
+}
+
+.admin-bets__cat-cell {
+  font-size: 0.8rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.admin-bets__empty {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem 1rem;
+  text-align: center;
+  font-size: 0.84rem;
+  color: var(--color-text-muted);
+  opacity: 0.7;
+}

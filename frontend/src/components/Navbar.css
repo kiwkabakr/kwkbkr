@@ -1,0 +1,213 @@
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  min-height: var(--navbar-height);
+  background-color: var(--color-bg);
+  padding: 0 var(--page-gutter);
+}
+
+.navbar__inner {
+  flex: 1;
+  width: 100%;
+  max-width: var(--layout-feature-max);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 1.75rem;
+  padding: 0.875rem 0;
+  min-height: var(--navbar-height);
+}
+
+.navbar__logo {
+  grid-column: 1;
+  display: inline-flex;
+  align-items: center;
+  color: #fff;
+  font-family: var(--font-sans);
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  letter-spacing: -1.2px;
+  text-decoration: none;
+}
+
+.navbar__logo:hover {
+  color: #fff;
+}
+
+.navbar__logo-dotgg {
+  color: var(--color-brand);
+}
+
+.navbar__nav {
+  grid-column: 2;
+  justify-self: start;
+  display: flex;
+  align-items: center;
+  gap: 1.75rem;
+  min-width: 0;
+}
+
+.navbar__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-sans);
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: -0.36px;
+  text-decoration: none;
+}
+
+/* Muted nav label + icon: same idea as Figma white @ low opacity + plus-lighter */
+.navbar__link-content {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: rgba(255, 255, 255, 0.42);
+  mix-blend-mode: plus-lighter;
+  transition: color 0.15s ease;
+  min-width: 0;
+}
+
+.navbar__link-text--short {
+  display: none;
+}
+
+.navbar__link:hover .navbar__link-content {
+  color: rgba(255, 255, 255, 0.62);
+}
+
+.navbar__link-icon {
+  flex-shrink: 0;
+  width: 1.25rem;
+  height: 1.25rem;
+  display: block;
+}
+
+.navbar__link svg {
+  flex-shrink: 0;
+}
+
+/* Figma 62:67 — notification count */
+.navbar__badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 0.35rem;
+  padding: 2px 10px;
+  border-radius: 23px;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: -0.02em;
+  color: var(--color-on-brand);
+  background-color: var(--color-brand);
+}
+
+/* Figma 62:55 — Stwórz konto */
+.navbar__cta {
+  grid-column: 3;
+  justify-self: end;
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  max-width: 100%;
+  min-width: 0;
+  padding: 6px 12px;
+  border: none;
+  border-radius: 29px;
+  background-color: var(--color-brand);
+  color: var(--color-on-brand);
+  font-family: var(--font-sans);
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: -0.36px;
+   text-decoration: none;
+  white-space: nowrap;
+  transition: filter 0.15s ease;
+  cursor: pointer;
+}
+
+.navbar__cta-label {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-width: 0;
+}
+
+.navbar__cta-icon {
+  flex-shrink: 0;
+  width: 1.125rem;
+  height: 1.125rem;
+  display: block;
+}
+
+.navbar__cta:hover {
+  filter: brightness(0.96);
+}
+
+.navbar__cta:focus-visible {
+  outline: 2px solid var(--color-brand);
+  outline-offset: 3px;
+}
+
+@media (max-width: 48rem) {
+  .navbar__inner {
+    gap: 0.625rem;
+    padding: 0.75rem 0;
+  }
+
+  .navbar__logo {
+    font-size: 1.125rem;
+    letter-spacing: -0.06em;
+  }
+
+  .navbar__link {
+    font-size: 0.9375rem;
+    letter-spacing: -0.02em;
+    gap: 0.35rem;
+  }
+
+  .navbar__badge {
+    margin-left: 0.2rem;
+    padding: 1px 7px;
+    font-size: 0.8125rem;
+  }
+
+  .navbar__cta {
+    padding: 6px 10px;
+    font-size: 0.9375rem;
+    letter-spacing: -0.02em;
+    gap: 0.25rem;
+  }
+
+  .navbar__link-icon {
+    width: 1.0625rem;
+    height: 1.0625rem;
+  }
+
+  .navbar__cta-icon {
+    width: 1rem;
+    height: 1rem;
+  }
+
+  .navbar__link-text--full {
+    display: none;
+  }
+
+  .navbar__link-text--short {
+    display: inline;
+  }
+}

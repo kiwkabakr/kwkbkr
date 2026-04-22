@@ -1,0 +1,240 @@
+/* Uses shared primitives for scaffolding. */
+
+.admin-people.admin-split .admin-split__list {
+  width: 400px;
+  min-height: 0;
+}
+
+/* ── People list (table) ───────────────────────────────── */
+.admin-people__table-outer {
+  flex: 1;
+  min-height: 0;
+  padding: 0 0.75rem 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.admin-people__table {
+  width: 100%;
+  min-width: 0;
+  table-layout: fixed;
+}
+
+.admin-people__table thead th:nth-child(2) {
+  width: 3.5rem;
+}
+
+.admin-people__table thead th:nth-child(3) {
+  width: 5.75rem;
+}
+
+.admin-people__table tbody tr {
+  cursor: pointer;
+  transition: background 0.1s ease;
+}
+
+.admin-people__table tbody tr:hover td {
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.admin-people__table tbody tr:focus-visible {
+  outline: 2px solid rgba(252, 220, 60, 0.45);
+  outline-offset: -2px;
+}
+
+.admin-people__row--active td {
+  background: rgba(252, 220, 60, 0.07) !important;
+}
+
+.admin-people__name-cell {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  min-width: 0;
+}
+
+.admin-people__avatar-sm {
+  width: 32px;
+  height: 32px;
+  font-size: 0.78rem;
+  flex-shrink: 0;
+}
+
+.admin-people__name-txt {
+  font-size: 0.86rem;
+  font-weight: 500;
+  color: var(--color-text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.admin-people__bet-count {
+  font-size: 0.84rem;
+  color: var(--color-text-muted);
+}
+
+.admin-people__type-pill {
+  font-size: 0.62rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--color-accent);
+  background: rgba(252, 220, 60, 0.12);
+  border-radius: 5px;
+  padding: 0.12rem 0.4rem;
+  white-space: nowrap;
+}
+
+.admin-people__empty {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem 1rem;
+  text-align: center;
+  font-size: 0.84rem;
+  color: var(--color-text-muted);
+  opacity: 0.7;
+}
+
+/* ── Detail ──────────────────────────────────────────────── */
+.admin-people__detail {
+  overflow-y: auto;
+}
+
+.admin-people__panel {
+  display: flex;
+  flex-direction: column;
+}
+
+.admin-people__panel .admin-page__title {
+  color: var(--color-text);
+}
+
+.admin-people__body {
+  padding: 1.25rem 1.75rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* ── Detail cards (mirror the tapes block style) ─────────── */
+.admin-people__card {
+  background: var(--color-card);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  padding: 1.25rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.admin-people__hint {
+  font-size: 0.78rem;
+}
+
+.admin-people__edit-row {
+  display: grid;
+  grid-template-columns: minmax(140px, 180px) 1fr;
+  gap: 1.25rem;
+  align-items: start;
+}
+
+.admin-people__edit-row .admin-field {
+  align-self: start;
+  justify-content: flex-start;
+}
+
+.admin-people__save {
+  align-self: flex-start;
+  padding: 0.6rem 1.2rem;
+  font-size: 0.88rem;
+}
+
+/* ── Category bets ───────────────────────────────────────── */
+.admin-people__cat-bets {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.admin-people__cat-bet {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+  padding: 0.75rem 0.9rem;
+}
+
+.admin-people__cat-bet-info {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.admin-people__cat-bet-title {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--color-text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.admin-people__cat-bet-opts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.admin-people__cat-opt {
+  font-size: 0.72rem;
+  color: var(--color-text-muted);
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 5px;
+  padding: 0.12rem 0.45rem;
+}
+
+.admin-people__cat-opt strong {
+  color: var(--color-accent);
+  font-weight: 600;
+}
+
+.admin-people__cat-opt--global {
+  font-style: italic;
+}
+
+/* progress bar */
+.admin-people__cat-progress {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.admin-people__cat-progress-bar {
+  height: 5px;
+  border-radius: 3px;
+  background: rgba(255, 255, 255, 0.06);
+  overflow: hidden;
+}
+
+.admin-people__cat-progress-fill {
+  height: 100%;
+  background: var(--color-accent);
+  border-radius: 3px;
+  transition: width 0.3s ease;
+}
+
+.admin-people__cat-progress-label {
+  font-size: 0.78rem;
+  color: var(--color-text-muted);
+}

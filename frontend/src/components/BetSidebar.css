@@ -1,0 +1,335 @@
+:root {
+  --sidebar-width: 376px;
+}
+
+.bet-sidebar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: var(--sidebar-width);
+  background: var(--color-bg);
+  border-left: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  flex-direction: column;
+  z-index: 50;
+  transform: translateX(100%);
+  transition: transform 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
+}
+
+.bet-sidebar--open {
+  transform: translateX(0);
+}
+
+/* Mobile: full-screen */
+@media (max-width: 600px) {
+  .bet-sidebar {
+    width: 100%;
+    border-left: none;
+  }
+}
+
+/* Header */
+.bet-sidebar__header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 20px 20px 14px;
+  flex-shrink: 0;
+}
+
+.bet-sidebar__close {
+  display: none;
+  margin-left: auto;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--color-text-muted);
+  padding: 4px;
+  line-height: 1;
+}
+
+@media (max-width: 600px) {
+  .bet-sidebar__close {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.bet-sidebar__title {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: -0.4px;
+  color: var(--color-text);
+}
+
+.bet-sidebar__count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 24px;
+  height: 24px;
+  padding: 0 7px;
+  border-radius: 12px;
+  background: var(--color-brand);
+  color: var(--color-on-brand);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+/* Bet list */
+.bet-sidebar__list {
+  flex: 1;
+  overflow-y: auto;
+  padding: 4px 16px 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  scrollbar-width: none;
+}
+
+.bet-sidebar__list::-webkit-scrollbar {
+  display: none;
+}
+
+.bet-sidebar__item {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 14px;
+  background: var(--color-card);
+  border-radius: 14px;
+}
+
+.bet-sidebar__item-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.bet-sidebar__item-avatar {
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.bet-sidebar__item-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.bet-sidebar__item-title {
+  flex: 1;
+  margin: 0;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--color-text);
+  line-height: 1.3;
+  letter-spacing: -0.2px;
+}
+
+.bet-sidebar__item-remove {
+  flex-shrink: 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--color-text-muted);
+  font-size: 20px;
+  line-height: 1;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+}
+
+.bet-sidebar__item-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.bet-sidebar__item-option {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--color-text);
+  letter-spacing: -0.3px;
+}
+
+.bet-sidebar__item-odds {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.bet-sidebar__item-old-mult {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--color-text-muted);
+  text-decoration: line-through;
+}
+
+.bet-sidebar__item-mult {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 10px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: -0.3px;
+  background: var(--color-accent);
+  color: var(--color-on-accent);
+}
+
+/* Footer */
+.bet-sidebar__footer {
+  padding: 14px 16px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+.bet-sidebar__tip {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px 12px;
+  border-radius: 10px;
+  background: var(--color-card);
+  overflow: hidden;
+}
+
+.bet-sidebar__tip-icon {
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  display: block;
+  color: #fff;
+}
+
+.bet-sidebar__tip-text {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: -0.36px;
+  line-height: 1.35;
+  color: var(--color-text);
+}
+
+.bet-sidebar__stake-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.bet-sidebar__stake-field {
+  flex: 1;
+  min-width: 0;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.bet-sidebar__stake-input {
+  width: 100%;
+  box-sizing: border-box;
+  background: var(--color-card);
+  border: none;
+  border-radius: 10px;
+  padding: 13px 2.25rem 13px 14px;
+  font-family: var(--font-sans);
+  font-size: 17px;
+  font-weight: 500;
+  color: var(--color-text);
+  outline: none;
+  -moz-appearance: textfield;
+}
+
+.bet-sidebar__stake-suffix {
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  font-family: var(--font-sans);
+  font-size: 17px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  color: rgba(255, 255, 255, 0.38);
+}
+
+.bet-sidebar__stake-input::-webkit-outer-spin-button,
+.bet-sidebar__stake-input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+.bet-sidebar__combined-odds {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--color-accent);
+  border-radius: 10px;
+  padding: 13px 14px;
+  flex-shrink: 0;
+}
+
+.bet-sidebar__combined-new {
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--color-on-accent);
+  letter-spacing: -0.3px;
+}
+
+.bet-sidebar__win-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2px;
+}
+
+.bet-sidebar__win-label {
+  font-size: 15px;
+  color: var(--color-text-muted);
+  font-weight: 400;
+}
+
+.bet-sidebar__win-amount {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--color-text);
+  letter-spacing: -0.4px;
+}
+
+.bet-sidebar__win-currency {
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.38);
+}
+
+.bet-sidebar__cta {
+  width: 100%;
+  padding: 16px;
+  background: var(--color-brand);
+  color: var(--color-on-brand);
+  border: none;
+  border-radius: 14px;
+  font-family: var(--font-sans);
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  letter-spacing: -0.3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}

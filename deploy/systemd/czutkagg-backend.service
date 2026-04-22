@@ -1,0 +1,29 @@
+[Unit]
+Description=Czutka.gg backend (Node/Express)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=czutkagg
+Group=czutkagg
+WorkingDirectory=/srv/czutkagg/backend
+EnvironmentFile=/etc/czutkagg/backend.env
+Environment=NODE_ENV=production
+ExecStart=/usr/bin/node dist/index.js
+Restart=always
+RestartSec=5
+
+# Hardening
+NoNewPrivileges=true
+ProtectSystem=strict
+ProtectHome=true
+PrivateTmp=true
+ReadWritePaths=/srv/czutkagg/backend
+
+# Log to journald: `journalctl -u czutkagg-backend -f`
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target

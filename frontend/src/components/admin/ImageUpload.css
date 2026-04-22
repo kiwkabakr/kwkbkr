@@ -1,0 +1,192 @@
+.img-upload {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  min-width: 0;
+}
+
+.img-upload__label {
+  margin: 0;
+  font-size: 0.7rem;
+  font-weight: 500;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+/* Zone respects the natural aspect ratio of the uploaded image.
+   When empty it falls back to a sensible placeholder per aspect type. */
+.img-upload__zone {
+  position: relative;
+  border-radius: 10px;
+  border: 1.5px dashed rgba(255, 255, 255, 0.14);
+  background: var(--color-card);
+  cursor: pointer;
+  overflow: hidden;
+  transition: border-color 0.15s ease, background 0.15s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Empty placeholders suggest the target aspect without forcing it on filled state */
+.img-upload--banner .img-upload__zone:not(.img-upload__zone--filled) {
+  width: 100%;
+  aspect-ratio: 3 / 1;
+  min-height: 90px;
+}
+
+.img-upload--square .img-upload__zone:not(.img-upload__zone--filled) {
+  width: 120px;
+  height: 120px;
+}
+
+/* Filled: let image dictate its own display size within sensible bounds */
+.img-upload__zone--filled {
+  padding: 0;
+  background: #000;
+}
+
+.img-upload--banner .img-upload__zone--filled {
+  width: 100%;
+  max-height: 220px;
+}
+
+.img-upload--square .img-upload__zone--filled {
+  width: auto;
+  max-width: 200px;
+  max-height: 200px;
+}
+
+.img-upload__zone:hover,
+.img-upload__zone--drag {
+  border-color: var(--color-accent);
+  background: rgba(252, 220, 60, 0.04);
+}
+
+.img-upload__zone--filled {
+  border-style: solid;
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+/* Natural-ratio preview: shown at its native proportions,
+   capped by container bounds. */
+.img-upload__preview {
+  display: block;
+  max-width: 100%;
+  max-height: 220px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+
+.img-upload--square .img-upload__preview {
+  max-height: 200px;
+  max-width: 200px;
+}
+
+.img-upload__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.15s ease;
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: #fff;
+  pointer-events: none;
+}
+
+.img-upload__zone--filled:hover .img-upload__overlay {
+  opacity: 1;
+}
+
+.img-upload__empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  padding: 1rem;
+  pointer-events: none;
+}
+
+.img-upload__empty-icon {
+  font-size: 1.1rem;
+  color: var(--color-text-muted);
+}
+
+.img-upload__empty-text {
+  font-size: 0.72rem;
+  color: var(--color-text-muted);
+  white-space: nowrap;
+}
+
+.img-upload__input {
+  display: none;
+}
+
+.img-upload__actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.img-upload__url-btn,
+.img-upload__clear-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 0.7rem;
+  font-family: var(--font-sans);
+  padding: 0.15rem 0.35rem;
+  border-radius: 4px;
+  color: var(--color-text-muted);
+}
+
+.img-upload__url-btn:hover,
+.img-upload__clear-btn:hover {
+  color: var(--color-text);
+  filter: none;
+}
+
+.img-upload__clear-btn {
+  color: rgba(255, 80, 80, 0.7);
+}
+
+.img-upload__url-row {
+  display: flex;
+  gap: 0.4rem;
+}
+
+.img-upload__url-input {
+  flex: 1;
+  background: var(--color-bg);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  padding: 0.3rem 0.5rem;
+  outline: none;
+  min-width: 0;
+}
+
+.img-upload__url-input:focus {
+  border-color: var(--color-accent);
+}
+
+.img-upload__url-apply {
+  background: var(--color-accent);
+  color: var(--color-on-accent);
+  border: none;
+  border-radius: 6px;
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.3rem 0.6rem;
+  cursor: pointer;
+  white-space: nowrap;
+}

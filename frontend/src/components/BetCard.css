@@ -1,0 +1,241 @@
+.bet-card {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  height: 100%;
+  min-height: 0;
+  padding: 16px;
+  background: var(--color-card);
+  border-radius: 16px;
+  overflow: hidden;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+.bet-card__header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.bet-card__avatar {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 9px;
+  overflow: hidden;
+}
+
+.bet-card__avatar-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  pointer-events: none;
+}
+
+.bet-card__avatar-placeholder {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* Hover: underline the title on card hover — matches featured-bet behaviour */
+.bet-card__title {
+  margin: 0;
+  color: #fff;
+  font-family: var(--font-sans);
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  letter-spacing: -0.36px;
+  text-decoration: underline transparent;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.18em;
+  transition: text-decoration-color 0.15s ease;
+}
+
+@media (hover: hover) {
+  .bet-card:hover .bet-card__title {
+    text-decoration-color: rgba(255, 255, 255, 0.45);
+  }
+}
+
+.bet-card__date {
+  margin: 0;
+  color: #9e9eab;
+  font-family: var(--font-sans);
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  letter-spacing: -0.36px;
+}
+
+.bet-card__options {
+  display: flex;
+  gap: 8px;
+  height: 42px;
+  margin-top: auto;
+  flex-shrink: 0;
+}
+
+.bet-card--triple .bet-card__options {
+  height: auto;
+  min-height: 40px;
+}
+
+.bet-card--triple .bet-card__option {
+  font-size: 14px;
+  padding: 0 4px;
+}
+
+.bet-card__option {
+  flex: 1 0 0;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 9px;
+  cursor: pointer;
+  font-family: var(--font-sans);
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: -0.36px;
+  line-height: normal;
+  overflow: hidden;
+  position: relative;
+}
+
+.bet-card__option-inner {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  max-width: 100%;
+  min-width: 0;
+}
+
+.bet-card__option-label {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.bet-card__option--primary {
+  background: var(--color-accent);
+  color: var(--color-on-accent);
+}
+
+.bet-card__option--secondary {
+  background: rgba(252, 220, 60, 0.1);
+  color: var(--color-accent);
+}
+
+.bet-card__option-mult {
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+/* ── Morph SVG (spinner → checkmark) ── */
+.bet-card__option-morph {
+  display: none;
+  pointer-events: none;
+  overflow: visible;
+}
+
+.bet-card__option--loading .bet-card__option-inner,
+.bet-card__option--selected .bet-card__option-inner {
+  display: none;
+}
+
+.bet-card__option--loading .bet-card__option-morph,
+.bet-card__option--selected .bet-card__option-morph {
+  display: block;
+}
+
+/* Circle (spinner ring) — circumference of r=9: 2π×9 ≈ 56.5 */
+.opt-morph-circle {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-dasharray: 56.5;
+  stroke-dashoffset: 42; /* ~25 % arc shown */
+  transform-origin: 12px 12px;
+  transition: stroke-dashoffset 0.18s ease, opacity 0.15s ease;
+}
+
+.bet-card__option--loading .opt-morph-circle {
+  opacity: 1;
+  animation: bet-card-morph-spin 0.65s linear infinite;
+}
+
+/* Hide circle when confirming or stable-selected */
+.bet-card__option--confirming .opt-morph-circle,
+.bet-card__option--selected:not(.bet-card__option--confirming) .opt-morph-circle {
+  animation: none;
+  stroke-dashoffset: 56.5;
+  opacity: 0;
+}
+
+/* Checkmark path — approx total length ≈ 13.7 */
+.opt-morph-check {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 13.7;
+  stroke-dashoffset: 13.7; /* hidden */
+  opacity: 0;
+  transition: stroke-dashoffset 0.25s ease, opacity 0.1s ease;
+}
+
+/* Draw in checkmark while confirming */
+.bet-card__option--confirming .opt-morph-check {
+  stroke-dashoffset: 0;
+  opacity: 1;
+  transition: stroke-dashoffset 0.25s ease 0.12s, opacity 0.1s ease 0.1s;
+}
+
+/* Stable selected: checkmark fully drawn, no transition needed */
+.bet-card__option--selected:not(.bet-card__option--confirming) .opt-morph-check {
+  stroke-dashoffset: 0;
+  opacity: 1;
+  transition: none;
+}
+
+/* Bounce on confirm: 1 → 0.9 → 1 */
+@keyframes bet-card-confirm-bounce {
+  0%   { transform: scale(1); }
+  35%  { transform: scale(0.9); }
+  100% { transform: scale(1); }
+}
+
+.bet-card__option--confirming {
+  animation: bet-card-confirm-bounce 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* Override global brightness/scale during loading & confirming */
+.bet-card__option--loading,
+.bet-card__option--loading:hover,
+.bet-card__option--loading:active,
+.bet-card__option--confirming,
+.bet-card__option--confirming:hover,
+.bet-card__option--confirming:active {
+  filter: none;
+}
+
+/* Selected dim */
+.bet-card__option--selected {
+  filter: brightness(0.72);
+}
+
+@keyframes bet-card-morph-spin {
+  to { transform: rotate(360deg); }
+}

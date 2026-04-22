@@ -1,0 +1,211 @@
+/* Uses shared primitives for layout, chips, status pills. */
+
+.admin-payments {
+  min-height: 0;
+}
+
+.admin-payments__header-actions {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.admin-payments__backfill-btn {
+  font-size: 0.76rem;
+  opacity: 0.72;
+}
+.admin-payments__backfill-btn:hover:not(:disabled) {
+  opacity: 1;
+}
+
+.admin-payments__body {
+  padding: 1.25rem 2rem 2rem;
+  gap: 1.25rem;
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.admin-payments__empty-wrap {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.admin-payments__table-outer {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── Summary stats ───────────────────────────────────────── */
+.admin-payments__stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 0.85rem;
+  flex-shrink: 0;
+}
+
+.admin-payments__stat {
+  background: var(--color-card);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 12px;
+  padding: 1rem 1.15rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.admin-payments__stat-label {
+  font-size: 0.68rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-text-muted);
+}
+
+.admin-payments__stat-value {
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: var(--color-text);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.02em;
+}
+
+.admin-payments__stat-value--in {
+  color: #4ade80;
+}
+
+.admin-payments__stat-value--out {
+  color: #fbbf24;
+}
+
+/* ── Filters ─────────────────────────────────────────────── */
+.admin-payments__filters {
+  display: flex;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+  flex-shrink: 0;
+}
+
+/* ── Messages ────────────────────────────────────────────── */
+.admin-payments__backfill-msg {
+  font-size: 0.82rem;
+  padding: 0.6rem 0.95rem;
+  background: rgba(74, 222, 128, 0.08);
+  border: 1px solid rgba(74, 222, 128, 0.2);
+  border-radius: 9px;
+  color: #4ade80;
+  flex-shrink: 0;
+}
+
+.admin-payments__error {
+  background: rgba(248, 113, 113, 0.1);
+  border: 1px solid rgba(248, 113, 113, 0.22);
+  border-radius: 9px;
+  color: #f87171;
+  font-size: 0.84rem;
+  padding: 0.6rem 0.95rem;
+  flex-shrink: 0;
+}
+
+/* ── Amount cell ─────────────────────────────────────────── */
+.admin-payments__amount-cell {
+  font-size: 0.82rem;
+  white-space: nowrap;
+}
+
+.admin-payments__amount {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-end;
+  line-height: 1.25;
+  gap: 0.1rem;
+}
+
+.admin-payments__amount-pln {
+  font-weight: 600;
+}
+
+.admin-payments__amount-native {
+  font-size: 0.7rem;
+  color: var(--color-text-muted);
+  font-weight: 500;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, monospace;
+}
+
+.admin-payments__amount-native--warn {
+  color: #fbbf24;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  font-size: 0.62rem;
+}
+
+/* ── Data table (card shell in TSX) ─────────────────────── */
+.admin-payments__table {
+  min-width: 920px;
+}
+
+.admin-data-table-shell .admin-payments__table thead th {
+  font-size: 0.64rem;
+  letter-spacing: 0.06em;
+}
+
+.admin-data-table-shell .admin-payments__table tbody td {
+  padding: 0.65rem 0.85rem;
+}
+
+.admin-payments__tr--pending td {
+  background: rgba(252, 220, 60, 0.04);
+}
+
+/* ── Type pill ───────────────────────────────────────────── */
+.admin-payments__type {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 0.18rem 0.5rem;
+  border-radius: 5px;
+}
+
+.admin-payments__type--in {
+  background: rgba(74, 222, 128, 0.12);
+  color: #4ade80;
+}
+
+.admin-payments__type--out {
+  background: rgba(251, 191, 36, 0.14);
+  color: #fbbf24;
+}
+
+/* ── Address ─────────────────────────────────────────────── */
+.admin-payments__addr-cell {
+  max-width: 280px;
+  vertical-align: top;
+}
+
+.admin-payments__addr-label {
+  display: block;
+  font-size: 0.58rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--color-text-muted);
+  margin-bottom: 0.22rem;
+}
+
+.admin-payments__addr-code {
+  display: block;
+  font-size: 0.72rem;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, monospace;
+  color: var(--color-text);
+  word-break: break-all;
+  line-height: 1.4;
+}

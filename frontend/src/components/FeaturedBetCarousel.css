@@ -1,0 +1,637 @@
+.featured-bet {
+  width: 100%;
+}
+
+.featured-bet__inner {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.featured-bet__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  flex-wrap: nowrap;
+  min-width: 0;
+}
+
+.featured-bet__heading {
+  margin: 0;
+  flex: 0 1 auto;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: #fff;
+  font-family: var(--font-sans);
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: -0.4px;
+}
+
+.featured-bet__countdown-wrap {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex: 1 1 0%;
+  min-width: 0;
+  justify-content: flex-end;
+}
+
+.featured-bet__dots {
+  flex-shrink: 0;
+  display: block;
+}
+
+.featured-bet__dots-blend {
+  mix-blend-mode: plus-lighter;
+}
+
+.featured-bet__dots-path--1 {
+  animation: featured-bet-dots-1 1.35s ease-in-out infinite;
+}
+
+.featured-bet__dots-path--2 {
+  animation: featured-bet-dots-2 1.35s ease-in-out infinite 0.18s;
+}
+
+.featured-bet__dots-path--3 {
+  animation: featured-bet-dots-3 1.35s ease-in-out infinite 0.36s;
+}
+
+@keyframes featured-bet-dots-1 {
+  0%,
+  100% {
+    opacity: 0.14;
+  }
+  50% {
+    opacity: 0.32;
+  }
+}
+
+@keyframes featured-bet-dots-2 {
+  0%,
+  100% {
+    opacity: 0.45;
+  }
+  50% {
+    opacity: 0.85;
+  }
+}
+
+@keyframes featured-bet-dots-3 {
+  0%,
+  100% {
+    opacity: 0.22;
+  }
+  50% {
+    opacity: 0.48;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .featured-bet__dots-path--1,
+  .featured-bet__dots-path--2,
+  .featured-bet__dots-path--3 {
+    animation: none;
+    opacity: 0.2;
+  }
+
+  .featured-bet__dots-path--2 {
+    opacity: 0.6;
+  }
+
+  .featured-bet__dots-path--3 {
+    opacity: 0.3;
+  }
+}
+
+.featured-bet__countdown {
+  display: flex;
+  align-items: baseline;
+  margin: 0;
+  min-width: 0;
+  max-width: 100%;
+  font-size: 0.9375rem;
+  font-weight: 300;
+  letter-spacing: -0.02em;
+  color: var(--color-text-muted);
+}
+
+.featured-bet__countdown-label {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  min-width: 0;
+  flex: 0 1 auto;
+}
+
+.featured-bet__countdown-time {
+  flex-shrink: 0;
+}
+
+.featured-bet__card {
+  background: var(--color-card);
+  border-radius: 24px;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+}
+
+.featured-bet__card:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+}
+
+.featured-bet__card:hover .featured-bet__title {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.18em;
+  text-decoration-color: rgba(255, 255, 255, 0.45);
+}
+
+.featured-bet__slides-viewport {
+  overflow: hidden;
+  width: 100%;
+}
+
+.featured-bet__slides-track {
+  display: flex;
+  flex-direction: row;
+  transition: transform 0.45s cubic-bezier(0.32, 0.72, 0, 1);
+  will-change: transform;
+}
+
+.featured-bet__slides-track--instant {
+  transition: none;
+}
+
+.featured-bet__slide {
+  flex: 0 0 100%;
+  width: 100%;
+  min-width: 0;
+}
+
+.featured-bet__slide[aria-hidden='true'] {
+  pointer-events: none;
+}
+
+.featured-bet__media {
+  position: relative;
+  height: min(42vw, 306px);
+  min-height: 200px;
+}
+
+.featured-bet__media-layers {
+  position: absolute;
+  inset: 0;
+  border-radius: 24px 24px 0 0;
+  overflow: hidden;
+}
+
+.featured-bet__img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Figma 71:85 — bottom blend into card */
+.featured-bet__media-shade {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border-radius: 24px 24px 0 0;
+  /* Transparent → exact card color so the photo meets the body with no seam */
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--color-card) 0%, transparent) 0%,
+    color-mix(in srgb, var(--color-card) 0%, transparent) 36%,
+    color-mix(in srgb, var(--color-card) 55%, transparent) 72%,
+    var(--color-card) 100%
+  );
+}
+
+.featured-bet__date-badge {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  z-index: 2;
+  padding: 6px 16px;
+  border-radius: 23px;
+  font-size: 1.125rem;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  color: var(--color-text);
+  background: rgba(17, 13, 34, 0.6);
+  backdrop-filter: blur(6.5px);
+}
+
+.featured-bet__title {
+  margin: 0;
+  padding: 1.25rem 1.75rem 1.125rem;
+  font-size: 1.5rem;
+  font-weight: 500;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+  color: var(--color-text);
+  text-decoration: underline transparent;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.18em;
+  transition:
+    text-decoration-color 0.15s ease,
+    color 0.15s ease;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.featured-bet__odds {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 0.5rem;
+  padding: 0.35rem 1.25rem 1.25rem;
+  align-items: stretch;
+  min-width: 0;
+}
+
+.featured-bet__odd {
+  position: relative;
+  flex: 1 1 0;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 11px 16px;
+  border: none;
+  border-radius: 16px;
+  cursor: pointer;
+  font: inherit;
+  text-align: center;
+}
+
+.featured-bet__odd:disabled {
+  cursor: wait;
+  opacity: 1;
+}
+
+.featured-bet__odd--loading,
+.featured-bet__odd--loading:hover,
+.featured-bet__odd--loading:active,
+.featured-bet__odd--confirming,
+.featured-bet__odd--confirming:hover,
+.featured-bet__odd--confirming:active {
+  transform: none;
+  filter: none;
+}
+
+/* Selected = dimmer */
+.featured-bet__odd--selected {
+  filter: brightness(0.88);
+}
+
+@media (hover: hover) {
+  .featured-bet__odd--selected:hover {
+    filter: brightness(0.79);
+  }
+}
+
+.featured-bet__odd--selected:active {
+  transform: scale(0.98);
+  filter: brightness(0.75);
+}
+
+/* Bounce on confirm */
+@keyframes featured-bet-confirm-bounce {
+  0%   { transform: scale(1); }
+  35%  { transform: scale(0.9); }
+  100% { transform: scale(1); }
+}
+
+.featured-bet__odd--confirming {
+  animation: featured-bet-confirm-bounce 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.featured-bet__odd-body {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  min-width: 0;
+  /* Slight downward nudge: label a touch nearer the pill’s vertical center than the kurs row */
+  transform: translateY(4px);
+}
+
+/* Hide body during loading, confirming, or stable selected */
+.featured-bet__odd--loading .featured-bet__odd-body,
+.featured-bet__odd--confirming .featured-bet__odd-body,
+.featured-bet__odd--selected .featured-bet__odd-body {
+  opacity: 0;
+}
+
+.featured-bet__odd-loader {
+  position: absolute;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+/* Show loader during loading, confirming, or selected */
+.featured-bet__odd--loading .featured-bet__odd-loader,
+.featured-bet__odd--confirming .featured-bet__odd-loader,
+.featured-bet__odd--selected .featured-bet__odd-loader {
+  display: flex;
+}
+
+/* Stroke colour per variant via currentColor */
+.featured-bet__odd--primary { color: var(--color-on-accent); }
+.featured-bet__odd--accent  { color: var(--color-accent); }
+.featured-bet__odd--ghost   { color: var(--color-text); }
+
+/* ── Morph SVG (shared circle + check path) ── */
+.featured-bet__odd-morph {
+  display: block;
+  overflow: visible;
+}
+
+/* circle — circumference ≈ 56.5 for r=9 */
+.featured-bet__odd-morph .opt-morph-circle {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-dasharray: 56.5;
+  stroke-dashoffset: 42;
+  transform-origin: 12px 12px;
+  opacity: 0;
+  transition: stroke-dashoffset 0.18s ease, opacity 0.15s ease;
+}
+
+.featured-bet__odd--loading .opt-morph-circle {
+  opacity: 1;
+  animation: featured-bet-morph-spin 0.65s linear infinite;
+}
+
+.featured-bet__odd--confirming .opt-morph-circle {
+  animation: none;
+  stroke-dashoffset: 56.5;
+  opacity: 0;
+}
+
+.featured-bet__odd--selected:not(.featured-bet__odd--confirming) .opt-morph-circle {
+  animation: none;
+  opacity: 0;
+}
+
+/* checkmark — approx path length ≈ 13.7 */
+.featured-bet__odd-morph .opt-morph-check {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 13.7;
+  stroke-dashoffset: 13.7;
+  opacity: 0;
+  transition: stroke-dashoffset 0.25s ease, opacity 0.1s ease;
+}
+
+.featured-bet__odd--confirming .opt-morph-check {
+  stroke-dashoffset: 0;
+  opacity: 1;
+  transition: stroke-dashoffset 0.25s ease 0.12s, opacity 0.1s ease 0.1s;
+}
+
+.featured-bet__odd--selected:not(.featured-bet__odd--confirming) .opt-morph-check {
+  stroke-dashoffset: 0;
+  opacity: 1;
+  transition: none;
+}
+
+@keyframes featured-bet-morph-spin {
+  to { transform: rotate(360deg); }
+}
+
+.featured-bet__odd--primary {
+  background: var(--color-accent);
+}
+
+.featured-bet__odd--accent {
+  background: rgba(252, 220, 60, 0.1);
+}
+
+.featured-bet__odd--ghost {
+  position: relative;
+  background: transparent;
+}
+
+.featured-bet__odd--ghost::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.1);
+  mix-blend-mode: plus-lighter;
+  pointer-events: none;
+}
+
+.featured-bet__odd--ghost .featured-bet__odd-inner,
+.featured-bet__odd--ghost .featured-bet__odd-name {
+  position: relative;
+  z-index: 1;
+}
+
+.featured-bet__odd-inner {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 8px;
+  border-radius: 8px;
+  position: relative;
+  z-index: 1;
+}
+
+.featured-bet__odd-inner--tint {
+  background: linear-gradient(90deg, rgba(252, 220, 60, 0.1), rgba(252, 220, 60, 0.1)),
+    linear-gradient(90deg, var(--color-card), var(--color-card));
+}
+
+.featured-bet__strikethrough {
+  position: relative;
+  display: inline-block;
+  min-width: 2.5rem;
+  height: 1.2em;
+}
+
+.featured-bet__strikethrough-text {
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  white-space: nowrap;
+}
+
+.featured-bet__strikethrough-line {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 100%;
+  height: 2px;
+  border-radius: 27px;
+  transform: translateY(-50%);
+}
+
+.featured-bet__strikethrough--on-accent .featured-bet__strikethrough-text {
+  color: #807027;
+}
+
+.featured-bet__strikethrough--on-accent .featured-bet__strikethrough-line {
+  background: #807027;
+}
+
+.featured-bet__strikethrough--accent .featured-bet__strikethrough-text {
+  color: #9e8420;
+}
+
+.featured-bet__strikethrough--accent .featured-bet__strikethrough-line {
+  background: #9e8420;
+}
+
+.featured-bet__strikethrough--muted .featured-bet__strikethrough-text {
+  color: #9e9eab;
+}
+
+.featured-bet__strikethrough--muted .featured-bet__strikethrough-line {
+  background: #9e9eab;
+}
+
+.featured-bet__odd-mult {
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  white-space: nowrap;
+}
+
+.featured-bet__odd-mult--dark {
+  color: var(--color-on-accent);
+}
+
+.featured-bet__odd-mult--lime {
+  color: var(--color-accent);
+}
+
+.featured-bet__odd-mult--white {
+  color: var(--color-text);
+}
+
+.featured-bet__odd-name {
+  min-width: 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.featured-bet__odd-name--dark {
+  color: var(--color-on-accent);
+}
+
+.featured-bet__odd-name--lime {
+  color: var(--color-accent);
+}
+
+.featured-bet__odd-name--white {
+  color: var(--color-text);
+}
+
+.featured-bet__pager {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 8px;
+}
+
+/* Figma 85:249 — active: wide track + inner progress */
+.featured-bet__pager-active {
+  position: relative;
+  width: 68px;
+  height: 12px;
+  flex-shrink: 0;
+  border-radius: 33px;
+  background: var(--color-pager-track);
+  overflow: hidden;
+}
+
+.featured-bet__pager-progress {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  border-radius: 33px;
+  background: #ffffff;
+  transform-origin: left center;
+  animation: featured-bet-pager-progress var(--carousel-autoplay-duration) linear infinite;
+  animation-iteration-count: infinite;
+}
+
+.featured-bet__pager-dot {
+  width: 12px;
+  height: 12px;
+  flex-shrink: 0;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background: var(--color-card);
+  cursor: pointer;
+  font-size: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .featured-bet__slides-track {
+    transition: none;
+  }
+
+  .featured-bet__pager-progress {
+    animation: none;
+    transform: scaleX(0.65);
+  }
+}
+
+@keyframes featured-bet-pager-progress {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@media (max-width: 40rem) {
+  .featured-bet__title {
+    font-size: 1.25rem;
+    padding: 1.125rem 1.25rem 1rem;
+  }
+
+  .featured-bet__odds {
+    padding: 0.35rem 1.25rem 1.75rem;
+  }
+
+  .featured-bet__odd-name {
+    font-size: 1.0625rem;
+  }
+}

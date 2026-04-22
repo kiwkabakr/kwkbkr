@@ -1,0 +1,509 @@
+.bet-list-card {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 16px;
+  background: var(--color-card);
+  border-radius: 16px;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.bet-list-card__title {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: -0.36px;
+  line-height: normal;
+  color: var(--color-text);
+  white-space: nowrap;
+}
+
+.bet-list-card__rows {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.bet-list-card__row {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.bet-list-card__row-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 24px;
+}
+
+.bet-list-card__avatar {
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.bet-list-card__avatar-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  pointer-events: none;
+}
+
+.bet-list-card__avatar-placeholder {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.bet-list-card__question {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: -0.32px;
+  line-height: normal;
+  color: #9e9eab;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.bet-list-card__row-odds {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.bet-list-card__answer {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: -0.36px;
+  line-height: normal;
+  color: var(--color-text);
+  white-space: nowrap;
+}
+
+.bet-list-card__odds {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.bet-list-card__strikethrough {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.bet-list-card__strikethrough-text {
+  font-family: var(--font-sans);
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: -0.32px;
+  line-height: normal;
+  color: #a59130;
+  white-space: nowrap;
+}
+
+.bet-list-card__strikethrough-line {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 100%;
+  height: 2px;
+  border-radius: 27px;
+  background: #a59130;
+  transform: translateY(-50%);
+}
+
+.bet-list-card__mult {
+  font-family: var(--font-sans);
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: -0.32px;
+  line-height: normal;
+  color: var(--color-accent);
+  white-space: nowrap;
+}
+
+/* Footer */
+
+.bet-list-card__footer {
+  display: flex;
+  gap: 8px;
+  height: 42px;
+}
+
+.bet-list-card__btn {
+  flex: 1 0 0;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  border: none;
+  border-radius: 9px;
+  font-family: var(--font-sans);
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: -0.36px;
+  line-height: normal;
+  white-space: nowrap;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.bet-list-card__btn--primary {
+  background: var(--color-accent);
+  color: var(--color-on-accent);
+  cursor: pointer;
+}
+
+.bet-list-card__btn--secondary {
+  background: rgba(252, 220, 60, 0.1);
+}
+
+.bet-list-card__btn--secondary .bet-list-card__strikethrough-text {
+  font-size: 18px;
+  letter-spacing: -0.36px;
+}
+
+.bet-list-card__btn--secondary .bet-list-card__mult {
+  font-size: 18px;
+  letter-spacing: -0.36px;
+}
+
+/* ── Spread / Figma market (bet page) ── */
+.bet-list-card--spread {
+  gap: 12px;
+}
+
+.bet-list-card__title-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 28px;
+}
+
+.bet-list-card__title-thumb {
+  width: 38px;
+  height: 38px;
+  border-radius: 6px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.bet-list-card__title-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.bet-list-card__title-row .bet-list-card__title {
+  flex: 1;
+  min-width: 0;
+}
+
+.bet-list-card--spread .bet-list-card__title {
+  font-size: 24px;
+  letter-spacing: -0.48px;
+}
+
+.bet-list-card__title-info {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+}
+
+.bet-list-card__title-info-svg {
+  display: block;
+}
+
+.bet-list-card__block-subtitle {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 2px;
+}
+
+.bet-list-card__block-subtitle-avatar {
+  width: 38px;
+  height: 38px;
+  border-radius: 6px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.bet-list-card__block-subtitle-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.bet-list-card__block-subtitle-name {
+  font-family: var(--font-sans);
+  font-size: 20px;
+  font-weight: 500;
+  letter-spacing: -0.4px;
+  color: #9e9eab;
+}
+
+.bet-list-card__spread-rows {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.bet-list-card__spread-empty {
+  margin: 0;
+  padding: 0.35rem 0;
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+  opacity: 0.85;
+}
+
+.bet-list-card__spread-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 40px;
+}
+
+.bet-list-card__spread-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+  max-width: 46%;
+}
+
+.bet-list-card__spread-avatar {
+  width: 38px;
+  height: 38px;
+  border-radius: 6px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.bet-list-card__spread-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.bet-list-card__spread-label {
+  font-family: var(--font-sans);
+  font-size: 20px;
+  font-weight: 500;
+  letter-spacing: -0.4px;
+  color: #9e9eab;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.bet-list-card__spread-line {
+  flex: 1;
+  min-width: 12px;
+  height: 4px;
+  border-radius: 32px;
+  background: #161628;
+  align-self: center;
+}
+
+.bet-list-card__spread-pill {
+  flex-shrink: 0;
+  min-width: 0;
+  padding: 9px 12px;
+  border: none;
+  border-radius: 16px;
+  cursor: pointer;
+  font-family: var(--font-sans);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: filter 0.15s ease, transform 0.12s ease;
+}
+
+.bet-list-card__spread-pill:disabled {
+  cursor: default;
+  opacity: 0.55;
+}
+
+.bet-list-card__spread-pill--primary {
+  background: #fcdc3c;
+  color: #050512;
+}
+
+.bet-list-card__spread-pill--secondary {
+  background: rgba(252, 220, 60, 0.1);
+  color: #fcdc3c;
+}
+
+.bet-list-card__spread-pill-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+}
+
+.bet-list-card__spread-strike {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.bet-list-card__spread-strike-text {
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: -0.32px;
+  color: #a59130;
+}
+
+.bet-list-card__spread-pill--secondary .bet-list-card__spread-strike-text {
+  color: rgba(252, 220, 60, 0.55);
+}
+
+.bet-list-card__spread-strike-line {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 100%;
+  height: 2px;
+  border-radius: 27px;
+  background: currentColor;
+  opacity: 0.7;
+  transform: translateY(-50%);
+}
+
+.bet-list-card__spread-pill-mult {
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: -0.32px;
+  white-space: nowrap;
+}
+
+.bet-list-card__spread-pill--primary .bet-list-card__spread-pill-mult {
+  color: #050512;
+}
+
+.bet-list-card__spread-pill--secondary .bet-list-card__spread-pill-mult {
+  color: #fcdc3c;
+}
+
+.bet-list-card__spread-pill--loading .bet-list-card__spread-pill-inner,
+.bet-list-card__spread-pill--selected .bet-list-card__spread-pill-inner {
+  display: none;
+}
+
+/* Morph SVG — same sequence as BetCard / BetPage (spinner → check + bounce) */
+.bet-list-card__spread-pill-morph {
+  display: none;
+  pointer-events: none;
+  overflow: visible;
+  flex-shrink: 0;
+}
+
+.bet-list-card__spread-pill--loading .bet-list-card__spread-pill-morph,
+.bet-list-card__spread-pill--selected .bet-list-card__spread-pill-morph {
+  display: block;
+}
+
+.bet-list-card__spread-pill-morph .opt-morph-circle {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-dasharray: 56.5;
+  stroke-dashoffset: 42;
+  transform-origin: 12px 12px;
+  transition: stroke-dashoffset 0.18s ease, opacity 0.15s ease;
+}
+
+.bet-list-card__spread-pill-morph .opt-morph-check {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 13.7;
+  stroke-dashoffset: 13.7;
+  opacity: 0;
+  transition: stroke-dashoffset 0.25s ease, opacity 0.1s ease;
+}
+
+.bet-list-card__spread-pill--loading .opt-morph-circle {
+  opacity: 1;
+  animation: bet-list-card-morph-spin 0.65s linear infinite;
+}
+
+.bet-list-card__spread-pill--confirming .opt-morph-circle,
+.bet-list-card__spread-pill--selected:not(.bet-list-card__spread-pill--confirming) .opt-morph-circle {
+  animation: none;
+  stroke-dashoffset: 56.5;
+  opacity: 0;
+}
+
+.bet-list-card__spread-pill--confirming .opt-morph-check {
+  stroke-dashoffset: 0;
+  opacity: 1;
+  transition: stroke-dashoffset 0.25s ease 0.12s, opacity 0.1s ease 0.1s;
+}
+
+.bet-list-card__spread-pill--selected:not(.bet-list-card__spread-pill--confirming) .opt-morph-check {
+  stroke-dashoffset: 0;
+  opacity: 1;
+  transition: none;
+}
+
+@keyframes bet-list-card-morph-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes bet-list-card-confirm-bounce {
+  0% {
+    transform: scale(1);
+  }
+  35% {
+    transform: scale(0.9);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.bet-list-card__spread-pill--confirming {
+  animation: bet-list-card-confirm-bounce 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.bet-list-card__spread-pill--loading,
+.bet-list-card__spread-pill--loading:hover,
+.bet-list-card__spread-pill--loading:active,
+.bet-list-card__spread-pill--confirming,
+.bet-list-card__spread-pill--confirming:hover,
+.bet-list-card__spread-pill--confirming:active {
+  filter: none;
+}
+
+.bet-list-card__spread-pill--selected:not(.bet-list-card__spread-pill--loading):not(.bet-list-card__spread-pill--confirming) {
+  filter: brightness(0.72);
+}

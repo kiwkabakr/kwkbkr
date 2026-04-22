@@ -1,0 +1,4 @@
+python-telegram-bot[all]==22.7
+qrcode[pil]==7.4.2
+httpx>=0.27
+python-dotenv==1.0.1

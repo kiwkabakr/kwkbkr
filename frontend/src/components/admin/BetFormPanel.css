@@ -1,0 +1,358 @@
+.bet-form-panel {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+}
+
+.bet-form-panel--idle {
+  align-items: center;
+  justify-content: center;
+}
+
+/* ── Header ──────────────────────────────────────────────── */
+.bet-form-panel__header {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 1.1rem 1.75rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  flex-shrink: 0;
+  min-height: 68px;
+  box-sizing: border-box;
+  background: var(--color-bg);
+  position: sticky;
+  top: 0;
+  z-index: 3;
+}
+
+.bet-form-panel__title {
+  margin: 0;
+  font-size: 1.15rem;
+  font-weight: 600;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  letter-spacing: -0.01em;
+}
+
+.bet-form-panel__short-id {
+  font-size: 0.68rem;
+  font-weight: 500;
+  color: var(--color-text-muted);
+  background: rgba(255, 255, 255, 0.06);
+  padding: 0.15rem 0.4rem;
+  border-radius: 4px;
+  font-family: var(--font-sans);
+}
+
+.bet-form-panel__header-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.bet-form-panel__saved-flash {
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: #4ade80;
+  animation: flash-in 0.2s ease;
+}
+
+@keyframes flash-in {
+  from { opacity: 0; transform: translateY(4px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.bet-form-panel__error {
+  padding: 0.5rem 1.25rem;
+  font-size: 0.8rem;
+  color: #f87171;
+  background: rgba(248, 113, 113, 0.08);
+  border-bottom: 1px solid rgba(248, 113, 113, 0.15);
+}
+
+/* ── Body ─────────────────────────────────────────────────── */
+.bet-form-panel__body {
+  flex: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── Images section ──────────────────────────────────────── */
+/* Banner occupies full width on top (true to frontend layout),
+   PFP tucks beside it on wide screens, wraps below on narrow. */
+.bet-form-panel__images-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 1rem;
+  align-items: start;
+}
+
+.bet-form-panel__image-col--banner {
+  min-width: 0;
+}
+
+.bet-form-panel__image-col--pfp {
+  flex-shrink: 0;
+}
+
+@media (max-width: 720px) {
+  .bet-form-panel__images-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ── Fields ──────────────────────────────────────────────── */
+.bet-form-panel__field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  flex: 1;
+  min-width: 0;
+}
+
+.bet-form-panel__row {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.bet-form-panel__label {
+  font-size: 0.7rem;
+  font-weight: 500;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.bet-form-panel__input,
+.bet-form-panel__select {
+  background: var(--color-card);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 8px;
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  padding: 0.5rem 0.7rem;
+  outline: none;
+  width: 100%;
+  transition: border-color 0.15s ease;
+  color-scheme: dark;
+}
+
+.bet-form-panel__input:focus,
+.bet-form-panel__select:focus {
+  border-color: var(--color-accent);
+}
+
+.bet-form-panel__input--sm {
+  font-size: 0.82rem;
+  padding: 0.4rem 0.55rem;
+}
+
+.bet-form-panel__select {
+  appearance: none;
+  cursor: pointer;
+  padding-right: 1.75rem;
+  background-image: linear-gradient(45deg, transparent 50%, rgba(255, 255, 255, 0.4) 50%),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.4) 50%, transparent 50%);
+  background-position: calc(100% - 16px) 50%, calc(100% - 11px) 50%;
+  background-size: 5px 5px;
+  background-repeat: no-repeat;
+}
+
+.bet-form-panel__cat-row {
+  display: flex;
+  gap: 0.4rem;
+}
+
+.bet-form-panel__cat-row .bet-form-panel__select {
+  flex: 1;
+}
+
+.bet-form-panel__add-cat-btn {
+  background: var(--color-card);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 8px;
+  color: var(--color-accent);
+  font-family: var(--font-sans);
+  font-size: 1.1rem;
+  font-weight: 600;
+  width: 38px;
+  cursor: pointer;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bet-form-panel__add-cat-btn:hover {
+  background: rgba(252, 220, 60, 0.08);
+  filter: none;
+}
+
+.bet-form-panel__new-cat-row {
+  display: flex;
+  gap: 0.4rem;
+  margin-top: 0.3rem;
+}
+
+/* ── Person global ───────────────────────────────────────── */
+.bet-form-panel__person-global-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.bet-form-panel__person-global-picker {
+  flex: 1;
+  min-width: 200px;
+}
+
+.bet-form-panel__person-info {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 20px;
+  padding: 0.3rem 0.75rem 0.3rem 0.4rem;
+}
+
+.bet-form-panel__person-pfp {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.bet-form-panel__person-avatar {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--color-accent);
+  color: var(--color-on-accent);
+  font-size: 0.75rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.bet-form-panel__person-name {
+  font-size: 0.82rem;
+  font-weight: 400;
+}
+
+/* ── Subgroup card ───────────────────────────────────────── */
+.bet-form-panel__subgroups {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.bet-form-panel__subgroup-card {
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 10px;
+  padding: 0.8rem;
+}
+
+.bet-form-panel__subgroup-fields {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 0.75rem;
+}
+
+.bet-form-panel__subgroup-image {
+  flex-shrink: 0;
+  width: 120px;
+}
+
+.bet-form-panel__subgroup-image .img-upload {
+  max-width: 100%;
+}
+
+.bet-form-panel__promote-cat {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.78rem;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  user-select: none;
+  flex-basis: 100%;
+  padding: 0.25rem 0;
+}
+
+.bet-form-panel__promote-cat input {
+  accent-color: var(--color-accent);
+  cursor: pointer;
+}
+
+.bet-form-panel__field--grow {
+  flex: 1;
+  min-width: 200px;
+}
+
+.bet-form-panel__field--block {
+  flex: 1 1 100%;
+  width: 100%;
+  min-width: 100%;
+}
+
+/* ── Options ─────────────────────────────────────────────── */
+.bet-form-panel__options {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.bet-form-panel__add-opt-btn {
+  background: none;
+  border: 1px dashed rgba(255, 255, 255, 0.15);
+  border-radius: 7px;
+  color: var(--color-text-muted);
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  padding: 0.35rem 0.7rem;
+  cursor: pointer;
+  transition: border-color 0.15s ease, color 0.15s ease;
+}
+
+.bet-form-panel__add-opt-btn:hover {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+  filter: none;
+}
+
+/* ── Textarea ─────────────────────────────────────────────── */
+.bet-form-panel__textarea {
+  background: var(--color-card);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 8px;
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  padding: 0.6rem 0.7rem;
+  outline: none;
+  resize: vertical;
+  min-height: 90px;
+  line-height: 1.45;
+  transition: border-color 0.15s ease;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.bet-form-panel__textarea:focus {
+  border-color: var(--color-accent);
+}
+
+.bet-form-panel__textarea--compact {
+  min-height: 3.25rem;
+}

@@ -1,0 +1,110 @@
+.admin-codes {
+  min-height: 0;
+}
+
+.admin-codes .admin-page__body.admin-codes__body {
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.admin-codes__error {
+  background: rgba(248, 113, 113, 0.1);
+  border: 1px solid rgba(248, 113, 113, 0.22);
+  color: #f87171;
+  font-size: 0.84rem;
+  padding: 0.6rem 0.95rem;
+  border-radius: 9px;
+  margin: 0.75rem 2rem 0;
+  flex-shrink: 0;
+}
+
+.admin-codes__form {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 0.85rem 1rem;
+  padding: 1.25rem 2rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  align-items: end;
+  flex-shrink: 0;
+}
+
+.admin-codes__form-actions {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  justify-content: flex-end;
+  grid-column: 1 / -1;
+}
+
+.admin-codes__table {
+  min-width: 980px;
+}
+
+.admin-data-table-shell .admin-codes__table thead th {
+  font-size: 0.64rem;
+  letter-spacing: 0.06em;
+}
+
+.admin-data-table-shell .admin-codes__table tbody td {
+  padding: 0.65rem 0.85rem;
+}
+
+.admin-codes__actions-head {
+  width: 1%;
+  white-space: nowrap;
+  text-align: right;
+}
+
+.admin-codes__code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, monospace;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--color-accent);
+  background: rgba(252, 220, 60, 0.08);
+  padding: 0.18rem 0.5rem;
+  border-radius: 5px;
+  letter-spacing: 0.04em;
+}
+
+.admin-codes__table tbody td:last-child {
+  width: 1%;
+  white-space: nowrap;
+  vertical-align: middle;
+}
+
+.admin-codes__actions {
+  display: flex;
+  gap: 0.35rem;
+  justify-content: flex-end;
+  white-space: nowrap;
+}
+
+.admin-codes__toggle {
+  font-size: 0.72rem;
+  padding: 0.28rem 0.55rem;
+}
+
+.admin-codes__source {
+  font-size: 0.64rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-text-muted);
+  background: rgba(255, 255, 255, 0.05);
+  padding: 0.12rem 0.4rem;
+  border-radius: 4px;
+}
+
+.admin-codes__uses {
+  font-variant-numeric: tabular-nums;
+}
+
+.admin-codes__hint {
+  grid-column: 1 / -1;
+  font-size: 0.72rem;
+  color: var(--color-text-muted);
+  margin: 0;
+  line-height: 1.5;
+}
